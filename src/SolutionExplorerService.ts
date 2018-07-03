@@ -1,6 +1,6 @@
-import {ISolutionExplorerService} from 'solutionexplorer.service.contracts';
-import {ISolution, IDiagram} from 'solutionexplorer.contracts';
-import {ISolutionExplorerRepository} from 'solutionexplorer.repository.contracts';
+import {ISolutionExplorerService} from '@process-engine/solutionexplorer.service.contracts';
+import {ISolution, IDiagram} from '@process-engine/solutionexplorer.contracts';
+import {ISolutionExplorerRepository} from '@process-engine/solutionexplorer.repository.contracts';
 import {IIdentity} from '@essential-projects/core_contracts';
 import {BadRequestError} from '@essential-projects/errors_ts';
 
