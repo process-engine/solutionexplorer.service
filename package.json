@@ -1,0 +1,20 @@
+{
+  "name": "@process-engine/solutionexplorer.service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -fr dist && tsc --outdir dist --declaration"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@essential-projects/core_contracts": "^2.0.0",
+    "@essential-projects/errors_ts": "^1.2.0",
+    "@process-engine/solutionexplorer.contracts": "0.0.1",
+    "@process-engine/solutionexplorer.repository.contracts": "0.0.1",
+    "@process-engine/solutionexplorer.service.contracts": "0.0.1"
+  }
+}
