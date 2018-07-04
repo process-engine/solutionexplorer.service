@@ -28,8 +28,7 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     const diagrams: Array<IDiagram> =  await this._repository.getDiagrams();
 
     const pathspec = this._pathspec;
-
-    const name: string = pathspec;
+    const name: string = pathspec.substring(pathspec.lastIndexOf('/')+1);
     const uri: string = pathspec;
 
     return {
