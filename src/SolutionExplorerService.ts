@@ -28,8 +28,7 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     const diagrams: Array<IDiagram> =  await this._repository.getDiagrams();
 
     const pathspec = this._pathspec;
-
-    const name: string = pathspec;
+    const name: string = pathspec.substring(pathspec.lastIndexOf('/')+1);
     const uri: string = pathspec;
 
     return {
@@ -52,6 +51,14 @@ export class SolutionExplorerService implements ISolutionExplorerService {
 
   public loadDiagram(diagramName: string): Promise<IDiagram> {
     return this._repository.getDiagramByName(diagramName);
+  }
+
+  public openSingleDiagram(fullPathToDiagram: string, identity: IIdentity): Promise<IDiagram> {
+    return this._repository.openSingleDiagram(fullPathToDiagram, identity);
+  }
+
+  public saveSingleDiagram(diagramToSave: IDiagram, identity: IIdentity, path?: string): Promise<IDiagram> {
+    return this._repository.saveSingleDiagram(diagramToSave, identity, path);
   }
 
   public saveDiagram(diagram: IDiagram, pathspec?: string): Promise<void> {
