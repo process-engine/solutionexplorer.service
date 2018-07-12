@@ -17,9 +17,9 @@
   "dependencies": {
     "@essential-projects/core_contracts": "^2.0.0",
     "@essential-projects/errors_ts": "^1.2.0",
-    "@process-engine/solutionexplorer.contracts": "0.0.1",
-    "@process-engine/solutionexplorer.repository.contracts": "0.0.1",
-    "@process-engine/solutionexplorer.service.contracts": "0.0.1"
+    "@process-engine/solutionexplorer.contracts": "1.0.0",
+    "@process-engine/solutionexplorer.repository.contracts": "1.0.0",
+    "@process-engine/solutionexplorer.service.contracts": "1.0.0"
   },
   "devDependencies": {
     "@essential-projects/tslint-config": "1.0.0",
