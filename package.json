@@ -1,6 +1,6 @@
 {
   "name": "@process-engine/solutionexplorer.service",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Service for the SolutionExplorer",
   "main": "dist/amd/index.js",
   "typings": "dist/index.d.ts",
