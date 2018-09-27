@@ -6,9 +6,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "gulp build",
-    "prepare": "npm run build && npm run build-schemas && npm run build-doc",
-    "build-doc": "gulp doc",
-    "build-schemas": "gulp typescript-schema",
+    "prepare": "npm run build",
     "lint": "gulp lint",
     "test": "gulp test"
   },
@@ -18,8 +16,8 @@
     "@essential-projects/iam_contracts": "^3.1.0",
     "@essential-projects/errors_ts": "^1.2.0",
     "@process-engine/solutionexplorer.contracts": "1.0.0",
-    "@process-engine/solutionexplorer.repository.contracts": "feature~use_iam_contracts",
-    "@process-engine/solutionexplorer.service.contracts": "feature~use_iam_contracts"
+    "@process-engine/solutionexplorer.repository.contracts": "2.0.0",
+    "@process-engine/solutionexplorer.service.contracts": "2.0.0"
   },
   "devDependencies": {
     "@essential-projects/tslint-config": "1.0.0",
