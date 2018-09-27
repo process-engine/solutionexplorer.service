@@ -1,25 +1,23 @@
 {
   "name": "@process-engine/solutionexplorer.service",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Service for the SolutionExplorer",
   "main": "dist/amd/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "gulp build",
-    "prepare": "npm run build && npm run build-schemas && npm run build-doc",
-    "build-doc": "gulp doc",
-    "build-schemas": "gulp typescript-schema",
+    "prepare": "npm run build",
     "lint": "gulp lint",
     "test": "gulp test"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@essential-projects/core_contracts": "^2.0.0",
+    "@essential-projects/iam_contracts": "^3.1.0",
     "@essential-projects/errors_ts": "^1.2.0",
     "@process-engine/solutionexplorer.contracts": "1.0.0",
-    "@process-engine/solutionexplorer.repository.contracts": "1.0.0",
-    "@process-engine/solutionexplorer.service.contracts": "1.0.0"
+    "@process-engine/solutionexplorer.repository.contracts": "2.0.0",
+    "@process-engine/solutionexplorer.service.contracts": "2.0.0"
   },
   "devDependencies": {
     "@essential-projects/tslint-config": "1.0.0",
