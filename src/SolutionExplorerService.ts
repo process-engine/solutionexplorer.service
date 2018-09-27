@@ -1,7 +1,7 @@
 import {ISolutionExplorerService} from '@process-engine/solutionexplorer.service.contracts';
 import {ISolution, IDiagram} from '@process-engine/solutionexplorer.contracts';
 import {ISolutionExplorerRepository} from '@process-engine/solutionexplorer.repository.contracts';
-import {IIdentity} from '@essential-projects/core_contracts';
+import {IIdentity} from '@essential-projects/iam_contracts';
 import {BadRequestError} from '@essential-projects/errors_ts';
 
 export class SolutionExplorerService implements ISolutionExplorerService {

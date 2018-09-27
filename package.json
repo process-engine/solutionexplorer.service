@@ -15,11 +15,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@essential-projects/core_contracts": "^2.0.0",
+    "@essential-projects/iam_contracts": "^3.1.0",
     "@essential-projects/errors_ts": "^1.2.0",
     "@process-engine/solutionexplorer.contracts": "1.0.0",
-    "@process-engine/solutionexplorer.repository.contracts": "1.0.0",
-    "@process-engine/solutionexplorer.service.contracts": "1.0.0"
+    "@process-engine/solutionexplorer.repository.contracts": "feature~use_iam_contracts",
+    "@process-engine/solutionexplorer.service.contracts": "feature~use_iam_contracts"
   },
   "devDependencies": {
     "@essential-projects/tslint-config": "1.0.0",
