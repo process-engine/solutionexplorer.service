@@ -64,4 +64,12 @@ export class SolutionExplorerService implements ISolutionExplorerService {
   public saveDiagram(diagram: IDiagram, pathspec?: string): Promise<void> {
     return this._repository.saveDiagram(diagram, pathspec);
   }
+
+  public renameDiagram(diagram: IDiagram, newName: string): Promise<IDiagram> {
+    return this._repository.renameDiagram(diagram, newName);
+  }
+
+  public deleteDiagram(diagram: IDiagram): Promise<void> {
+    return this._repository.deleteDiagram(diagram);
+  }
 }
