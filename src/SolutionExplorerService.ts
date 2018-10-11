@@ -25,7 +25,7 @@ export class SolutionExplorerService implements ISolutionExplorerService {
         return pathspec.slice(0, -1);
       }
     })();
-
+    console.log(slicedPathspec);
     //  }}} Cleanup name if '/' at the end //<
 
     await this._repository.openPath(slicedPathspec, identity);
