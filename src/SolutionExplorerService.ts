@@ -16,6 +16,7 @@ export class SolutionExplorerService implements ISolutionExplorerService {
   public async openSolution(pathspec: string, identity: IIdentity): Promise<void> {
     //  Cleanup name if '/' at the end {{{ //
     //  TODO: Replace this by a proper RegEx
+
     const slicedPathspec: string = ((): string => {
       const pathIsRootOnly: boolean = pathspec.length === 1;
       const pathDoesNotEndsWithSlash: boolean = !pathspec.endsWith('/');
@@ -25,7 +26,7 @@ export class SolutionExplorerService implements ISolutionExplorerService {
         return pathspec.slice(0, -1);
       }
     })();
-    console.log(slicedPathspec);
+
     //  }}} Cleanup name if '/' at the end //<
 
     await this._repository.openPath(slicedPathspec, identity);
