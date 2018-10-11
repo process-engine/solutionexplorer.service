@@ -18,7 +18,7 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     //  TODO: Replace this by a proper RegEx
     const slicedPathspec: string = ((): string => {
       const pathIsRootOnly: boolean = pathspec.length === 1;
-      const pathDoesNotEndsWithSlash: boolean = pathspec.endsWith('/');
+      const pathDoesNotEndsWithSlash: boolean = !pathspec.endsWith('/');
       if (pathIsRootOnly || pathDoesNotEndsWithSlash) {
         return pathspec;
       } else {
