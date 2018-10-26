@@ -24,9 +24,9 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     const pathEndsWithSlash: boolean = pathspec.endsWith('/');
     const trailingSlashShouldBeRemoved: boolean = pathIsNotRootOnly && pathEndsWithSlash;
 
-    this._pathspec = (trailingSlashShouldBeRemoved)
-                                        ? pathspec.slice(0, -1)
-                                        : pathspec;
+    this._pathspec = trailingSlashShouldBeRemoved
+      ? pathspec.slice(0, -1)
+      : pathspec;
 
     //  }}} Cleanup name if '/' at the end //<
 
