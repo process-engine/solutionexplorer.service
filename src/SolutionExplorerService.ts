@@ -15,13 +15,22 @@ export class SolutionExplorerService implements ISolutionExplorerService {
 
   public async openSolution(pathspec: string, identity: IIdentity): Promise<void> {
     //  Cleanup name if '/' at the end {{{ //
-    //  TODO: Replace this by a proper RegEx
-    const slicedPathspec: string = pathspec.slice(-1)[0] === '/' ? pathspec.slice(0, -1) : pathspec;
+
+    /**
+     * TODO: This needs to be refactored and moved to the
+     * different repositories.
+     */
+    const pathIsNotRootOnly: boolean = pathspec !== '/';
+    const pathEndsWithSlash: boolean = pathspec.endsWith('/');
+    const trailingSlashShouldBeRemoved: boolean = pathIsNotRootOnly && pathEndsWithSlash;
+
+    this._pathspec = trailingSlashShouldBeRemoved
+      ? pathspec.slice(0, -1)
+      : pathspec;
+
     //  }}} Cleanup name if '/' at the end //<
 
-    await this._repository.openPath(slicedPathspec, identity);
-
-    this._pathspec = slicedPathspec;
+    await this._repository.openPath(this._pathspec, identity);
   }
 
   public async loadSolution(): Promise<ISolution> {
