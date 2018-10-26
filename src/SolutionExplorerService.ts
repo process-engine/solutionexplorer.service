@@ -20,21 +20,17 @@ export class SolutionExplorerService implements ISolutionExplorerService {
      * TODO: This needs to be refactored and moved to the
      * different repositories.
      */
-    const slicedPathspec: string = ((): string => {
-      const pathIsRootOnly: boolean = pathspec.length === 1;
-      const pathDoesNotEndsWithSlash: boolean = !pathspec.endsWith('/');
-      if (pathIsRootOnly || pathDoesNotEndsWithSlash) {
-        return pathspec;
-      } else {
-        return pathspec.slice(0, -1);
-      }
-    })();
+    const pathIsNotRootOnly: boolean = pathspec !== '/';
+    const pathEndsWithSlash: boolean = pathspec.endsWith('/');
+    const trailingSlashShouldBeRemoved: boolean = pathIsNotRootOnly && pathEndsWithSlash;
+
+    this._pathspec = (trailingSlashShouldBeRemoved)
+                                        ? pathspec.slice(0, -1)
+                                        : pathspec;
 
     //  }}} Cleanup name if '/' at the end //<
 
-    await this._repository.openPath(slicedPathspec, identity);
-
-    this._pathspec = slicedPathspec;
+    await this._repository.openPath(this._pathspec, identity);
   }
 
   public async loadSolution(): Promise<ISolution> {
