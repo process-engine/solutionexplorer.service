@@ -62,14 +62,6 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     return this._repository.getDiagramByName(diagramName);
   }
 
-  public openSingleDiagram(fullPathToDiagram: string, identity: IIdentity): Promise<IDiagram> {
-    return this._repository.openSingleDiagram(fullPathToDiagram, identity);
-  }
-
-  public saveSingleDiagram(diagramToSave: IDiagram, identity: IIdentity, path?: string): Promise<IDiagram> {
-    return this._repository.saveSingleDiagram(diagramToSave, identity, path);
-  }
-
   public saveDiagram(diagram: IDiagram, pathspec?: string): Promise<void> {
     return this._repository.saveDiagram(diagram, pathspec);
   }
