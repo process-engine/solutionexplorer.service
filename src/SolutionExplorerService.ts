@@ -15,13 +15,22 @@ export class SolutionExplorerService implements ISolutionExplorerService {
 
   public async openSolution(pathspec: string, identity: IIdentity): Promise<void> {
     //  Cleanup name if '/' at the end {{{ //
-    //  TODO: Replace this by a proper RegEx
-    const slicedPathspec: string = pathspec.slice(-1)[0] === '/' ? pathspec.slice(0, -1) : pathspec;
+
+    /**
+     * TODO: This needs to be refactored and moved to the
+     * different repositories.
+     */
+    const pathIsNotRootOnly: boolean = pathspec !== '/';
+    const pathEndsWithSlash: boolean = pathspec.endsWith('/');
+    const trailingSlashShouldBeRemoved: boolean = pathIsNotRootOnly && pathEndsWithSlash;
+
+    this._pathspec = trailingSlashShouldBeRemoved
+      ? pathspec.slice(0, -1)
+      : pathspec;
+
     //  }}} Cleanup name if '/' at the end //<
 
-    await this._repository.openPath(slicedPathspec, identity);
-
-    this._pathspec = slicedPathspec;
+    await this._repository.openPath(this._pathspec, identity);
   }
 
   public async loadSolution(): Promise<ISolution> {
@@ -51,14 +60,6 @@ export class SolutionExplorerService implements ISolutionExplorerService {
 
   public loadDiagram(diagramName: string): Promise<IDiagram> {
     return this._repository.getDiagramByName(diagramName);
-  }
-
-  public openSingleDiagram(fullPathToDiagram: string, identity: IIdentity): Promise<IDiagram> {
-    return this._repository.openSingleDiagram(fullPathToDiagram, identity);
-  }
-
-  public saveSingleDiagram(diagramToSave: IDiagram, identity: IIdentity, path?: string): Promise<IDiagram> {
-    return this._repository.saveSingleDiagram(diagramToSave, identity, path);
   }
 
   public saveDiagram(diagram: IDiagram, pathspec?: string): Promise<void> {
