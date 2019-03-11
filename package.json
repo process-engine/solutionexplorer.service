@@ -20,10 +20,10 @@
     "@process-engine/solutionexplorer.service.contracts": "feature~add_optional_path"
   },
   "devDependencies": {
-    "@essential-projects/tslint-config": "1.0.0",
-    "gulp": "^3.9.1",
-    "gulptraum": "^2.3.0",
-    "gulptraum-typescript": "^1.5.0",
+    "@essential-projects/tslint-config": "^1.0.0",
+    "gulp": "^4.0.0",
+    "gulptraum": "^3.0.0",
+    "gulptraum-typescript": "^3.0.0",
     "tsconfig": "^7.0.0",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
