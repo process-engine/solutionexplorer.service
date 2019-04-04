@@ -58,8 +58,8 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     await this._repository.saveSolution(solution, path);
   }
 
-  public loadDiagram(diagramName: string): Promise<IDiagram> {
-    return this._repository.getDiagramByName(diagramName);
+  public loadDiagram(diagramName: string, pathspec?: string): Promise<IDiagram> {
+    return this._repository.getDiagramByName(diagramName, pathspec);
   }
 
   public saveDiagram(diagram: IDiagram, pathspec?: string): Promise<void> {
