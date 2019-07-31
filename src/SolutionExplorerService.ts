@@ -13,7 +13,7 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     this._repository = repository;
   }
 
-  public watchFile(filepath: string, callback: (path: string) => void): void {
+  public watchFile(filepath: string, callback: (event: string, previousPath: string, newFilename: string) => void): void {
     this._repository.watchFile(filepath, callback);
   }
 
