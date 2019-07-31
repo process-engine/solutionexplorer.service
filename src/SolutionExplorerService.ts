@@ -13,22 +13,6 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     this._repository = repository;
   }
 
-  public addFileToWatch(filepath: string): void {
-    this._repository.addFileToWatch(filepath)
-  }
-
-  public removeFileFromWatching(filepath: string): void {
-    this._repository.removeFileFromWatching(filepath);
-  }
-
-  public addFileChangeCallback(callback: (path: string) => void): void {
-    this._repository.addFileChangeCallback(callback);
-  }
-
-  public removeFileChangeCallback(callback: (path: string) => void): void {
-    this._repository.removeFileChangeCallback(callback);
-  }
-
   public async openSolution(pathspec: string, identity: IIdentity): Promise<void> {
     //  Cleanup name if '/' at the end {{{ //
 
