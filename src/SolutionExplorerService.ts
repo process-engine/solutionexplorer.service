@@ -3,6 +3,7 @@ import {ISolution, IDiagram} from '@process-engine/solutionexplorer.contracts';
 import {ISolutionExplorerRepository} from '@process-engine/solutionexplorer.repository.contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 import {BadRequestError} from '@essential-projects/errors_ts';
+import {IFileChangedCallback} from '@process-engine/solutionexplorer.service.contracts'
 
 export class SolutionExplorerService implements ISolutionExplorerService {
 
@@ -13,7 +14,7 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     this._repository = repository;
   }
 
-  public watchFile(filepath: string, callback: (event: string, previousPath: string, newFilename: string) => void): void {
+  public watchFile(filepath: string, callback: IFileChangedCallback): void {
     this._repository.watchFile(filepath, callback);
   }
 
