@@ -1,32 +1,32 @@
 {
   "name": "@process-engine/solutionexplorer.service",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "description": "Service for the SolutionExplorer",
   "main": "dist/amd/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "gulp build",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run build-commonjs && npm run build-amd",
+    "build-commonjs": "tsc",
+    "build-amd": "tsc --module amd --outDir ./dist/amd",
     "prepare": "npm run build",
-    "lint": "gulp lint",
-    "test": "gulp test"
+    "lint": "eslint src/*.ts",
+    "lint-fix": "eslint --fix src/*.ts",
+    "test": ":"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@essential-projects/iam_contracts": "^3.1.0",
     "@essential-projects/errors_ts": "^1.2.0",
-    "@process-engine/solutionexplorer.contracts": "^1.0.0",
-    "@process-engine/solutionexplorer.repository.contracts": "^4.2.0",
-    "@process-engine/solutionexplorer.service.contracts": "^4.2.0"
+    "@process-engine/solutionexplorer.contracts": "1.1.0-alpha.1",
+    "@process-engine/solutionexplorer.repository.contracts": "4.3.0-alpha.1",
+    "@process-engine/solutionexplorer.service.contracts": "4.3.0-alpha.1"
   },
   "devDependencies": {
-    "@essential-projects/tslint-config": "^1.0.0",
+    "@essential-projects/eslint-config": "^1.0.0",
     "@process-engine/ci_tools": "^2.0.0",
-    "gulp": "^4.0.0",
-    "gulptraum": "^3.0.0",
-    "gulptraum-typescript": "^3.0.0",
-    "tsconfig": "^7.0.0",
-    "tslint": "^5.10.0",
-    "typescript": "^2.8.3"
+    "eslint": "^5.16.0",
+    "typescript": "^3.1.6"
   }
 }
