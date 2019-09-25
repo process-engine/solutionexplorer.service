@@ -19,9 +19,9 @@
   "dependencies": {
     "@essential-projects/iam_contracts": "^3.1.0",
     "@essential-projects/errors_ts": "^1.2.0",
-    "@process-engine/solutionexplorer.contracts": "feature~use_eslint_and_tsc",
-    "@process-engine/solutionexplorer.repository.contracts": "feature~use_eslint_and_tsc",
-    "@process-engine/solutionexplorer.service.contracts": "feature~use_eslint_and_tsc"
+    "@process-engine/solutionexplorer.contracts": "1.1.0-alpha.1",
+    "@process-engine/solutionexplorer.repository.contracts": "4.3.0-alpha.1",
+    "@process-engine/solutionexplorer.service.contracts": "4.3.0-alpha.1"
   },
   "devDependencies": {
     "@essential-projects/eslint-config": "^1.0.0",
