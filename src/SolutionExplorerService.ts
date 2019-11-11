@@ -1,25 +1,24 @@
-import {ISolutionExplorerService} from '@process-engine/solutionexplorer.service.contracts';
-import {ISolution, IDiagram} from '@process-engine/solutionexplorer.contracts';
+import {IFileChangedCallback, ISolutionExplorerService} from '@process-engine/solutionexplorer.service.contracts';
+import {IDiagram, ISolution} from '@process-engine/solutionexplorer.contracts';
 import {ISolutionExplorerRepository} from '@process-engine/solutionexplorer.repository.contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 import {BadRequestError} from '@essential-projects/errors_ts';
-import {IFileChangedCallback} from '@process-engine/solutionexplorer.service.contracts'
 
 export class SolutionExplorerService implements ISolutionExplorerService {
 
-  private _repository: ISolutionExplorerRepository;
-  private _pathspec: string;
+  private readonly repository: ISolutionExplorerRepository;
+  private pathspec: string;
 
   constructor(repository: ISolutionExplorerRepository) {
-    this._repository = repository;
+    this.repository = repository;
   }
 
   public watchFile(filepath: string, callback: IFileChangedCallback): void {
-    this._repository.watchFile(filepath, callback);
+    this.repository.watchFile(filepath, callback);
   }
 
   public unwatchFile(filepath: string): void {
-    this._repository.unwatchFile(filepath);
+    this.repository.unwatchFile(filepath);
   }
 
   public async openSolution(pathspec: string, identity: IIdentity): Promise<void> {
@@ -29,25 +28,25 @@ export class SolutionExplorerService implements ISolutionExplorerService {
      * TODO: This needs to be refactored and moved to the
      * different repositories.
      */
-    const pathIsNotRootOnly: boolean = pathspec !== '/';
-    const pathEndsWithSlash: boolean = pathspec.endsWith('/');
-    const trailingSlashShouldBeRemoved: boolean = pathIsNotRootOnly && pathEndsWithSlash;
+    const pathIsNotRootOnly = pathspec !== '/';
+    const pathEndsWithSlash = pathspec.endsWith('/');
+    const trailingSlashShouldBeRemoved = pathIsNotRootOnly && pathEndsWithSlash;
 
-    this._pathspec = trailingSlashShouldBeRemoved
+    this.pathspec = trailingSlashShouldBeRemoved
       ? pathspec.slice(0, -1)
       : pathspec;
 
     //  }}} Cleanup name if '/' at the end //<
 
-    await this._repository.openPath(this._pathspec, identity);
+    await this.repository.openPath(this.pathspec, identity);
   }
 
   public async loadSolution(): Promise<ISolution> {
-    const diagrams: Array<IDiagram> =  await this._repository.getDiagrams();
+    const diagrams: Array<IDiagram> = await this.repository.getDiagrams();
 
-    const pathspec = this._pathspec;
-    const name: string = pathspec.substring(pathspec.lastIndexOf('/')+1);
-    const uri: string = pathspec;
+    const pathspec = this.pathspec;
+    const name = pathspec.substring(pathspec.lastIndexOf('/') + 1);
+    const uri = pathspec;
 
     return {
       name: name,
@@ -58,28 +57,29 @@ export class SolutionExplorerService implements ISolutionExplorerService {
 
   public async saveSolution(solution: ISolution, path?: string): Promise<void> {
 
-    const solutionPathDosentMatchCurrentPathSpec: boolean = solution.uri !== this._pathspec;
+    const solutionPathDosentMatchCurrentPathSpec = solution.uri !== this.pathspec;
 
     if (solutionPathDosentMatchCurrentPathSpec) {
-      throw new BadRequestError(`'${solution.uri}' dosent match opened pathspec '${this._pathspec}'.`);
+      throw new BadRequestError(`'${solution.uri}' dosent match opened pathspec '${this.pathspec}'.`);
     }
 
-    await this._repository.saveSolution(solution, path);
+    await this.repository.saveSolution(solution, path);
   }
 
   public loadDiagram(diagramName: string, pathspec?: string): Promise<IDiagram> {
-    return this._repository.getDiagramByName(diagramName, pathspec);
+    return this.repository.getDiagramByName(diagramName, pathspec);
   }
 
   public saveDiagram(diagram: IDiagram, pathspec?: string): Promise<void> {
-    return this._repository.saveDiagram(diagram, pathspec);
+    return this.repository.saveDiagram(diagram, pathspec);
   }
 
   public renameDiagram(diagram: IDiagram, newName: string): Promise<IDiagram> {
-    return this._repository.renameDiagram(diagram, newName);
+    return this.repository.renameDiagram(diagram, newName);
   }
 
   public deleteDiagram(diagram: IDiagram): Promise<void> {
-    return this._repository.deleteDiagram(diagram);
+    return this.repository.deleteDiagram(diagram);
   }
+
 }
