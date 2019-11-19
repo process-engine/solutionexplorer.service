@@ -21,6 +21,14 @@ export class SolutionExplorerService implements ISolutionExplorerService {
     this.repository.unwatchFile(filepath);
   }
 
+  public watchSolution(callback: Function): string {
+    return this.repository.watchSolution(callback);
+  }
+
+  public unwatchSolution(id: string): void {
+    return this.repository.unwatchSolution(id);
+  }
+
   public async openSolution(pathspec: string, identity: IIdentity): Promise<void> {
     //  Cleanup name if '/' at the end {{{ //
 
