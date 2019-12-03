@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@essential-projects/eslint-config": "^1.0.0",
-    "@process-engine/ci_tools": "^2.0.0",
+    "@process-engine/ci_tools": "^2.2.1",
     "eslint": "^5.16.0",
     "typescript": "^3.1.6"
   }
