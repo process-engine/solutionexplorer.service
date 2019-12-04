@@ -13,7 +13,7 @@ jobs:
     if: "!(contains(github.actor, 'process-engine-ci') || contains(github.actor, 'admin'))"
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
 
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
