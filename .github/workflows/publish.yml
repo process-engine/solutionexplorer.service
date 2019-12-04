@@ -34,6 +34,9 @@ jobs:
     - name: 'Run Tests'
       run: npm test
 
+    - name: 'Lint Sources'
+      run: npm run lint
+
     - name: 'Commit & Tag Version'
       env:
         GH_USER: "process-engine-ci"
