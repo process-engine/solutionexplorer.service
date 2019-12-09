@@ -24,9 +24,9 @@
     "@process-engine/solutionexplorer.service.contracts": "4.4.0-alpha.1"
   },
   "devDependencies": {
-    "@essential-projects/eslint-config": "^1.0.0",
+    "@essential-projects/eslint-config": "^1.2.1",
     "@process-engine/ci_tools": "^2.2.1",
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.0",
     "typescript": "^3.1.6"
   }
 }
