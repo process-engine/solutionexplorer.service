@@ -4,8 +4,8 @@ A subpackage which provides the service for the SolutionExplorer used by [BPMN S
 
 ## Relevant URLs 
 
+- [SolutionExplorer Contracts](https://github.com/process-engine/solutionexplorer.contracts)
 - [SolutionExplorer Service Contracts](https://github.com/process-engine/solutionexplorer.service.contracts)
-- [SolutionExplorer Service](https://github.com/process-engine/solutionexplorer.service)
 - [SolutionExplorer Repository Contracts](https://github.com/process-engine/solutionexplorer.repository.contracts)
 - [SolutionExplorer Repository Filesystem](https://github.com/process-engine/solutionexplorer.repository.filesystem)
 - [SolutionExplorer Repository Management API](https://github.com/process-engine/solutionexplorer.repository.management_api)
