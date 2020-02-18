@@ -10,7 +10,7 @@ A subpackage which provides the service for the SolutionExplorer used by [BPMN S
 - [SolutionExplorer Repository Filesystem](https://github.com/process-engine/solutionexplorer.repository.filesystem)
 - [SolutionExplorer Repository Management API](https://github.com/process-engine/solutionexplorer.repository.management_api)
 
-### Authors/Contact information?
+### Authors/Contact information
 
 - Alexander Kasten <alexander.kasten@5minds.de>
 - Steffen Knaup <steffen.knaup@5minds.de>
